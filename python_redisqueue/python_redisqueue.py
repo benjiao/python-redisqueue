@@ -1,13 +1,15 @@
-import sys
 import json
 import redis
 from datetime import datetime
 
+
 class RedisQueueError(Exception):
     pass
 
+
 class RedisQueueBadDataError(RedisQueueError):
     pass
+
 
 class RedisQueue:
     def __init__(self, name, host='localhost', port=6379, db=0):
@@ -45,8 +47,8 @@ class RedisQueue:
             elif data_type is dict:
                 data_json = json.dumps({"type": "dict", "body": data})
             else:
-               raise RedisQueueError(("Data type cannot be encoded: %s. " + \
-                                      "Please use <type 'int'>, <type 'str'> " + \
+               raise RedisQueueError(("Data type cannot be encoded: %s. " +
+                                      "Please use <type 'int'>, <type 'str'> " +
                                       "or <type 'dict'> instead") % data_type)
 
             self._q.lpush(self._queuename, data_json)
@@ -55,10 +57,10 @@ class RedisQueue:
         except RedisQueueError:
             raise
         except redis.ConnectionError, e:
-            raise RedisQueueError("Cannot connect to Redis! %s" % \
-                                   str(type(e))+str(e))
+            raise RedisQueueError("Cannot connect to Redis! %s" %
+                                  str(type(e))+str(e))
         except Exception, e:
-            raise RedisQueueError("Unexpected error: %s" % \
+            raise RedisQueueError("Unexpected error: %s" %
                                   str(type(e)) + str(e))
 
     def deq(self):
@@ -82,17 +84,17 @@ class RedisQueue:
             elif data_type == "dict":
                 return results_dict["body"]
             else:
-                raise RedisQueueError("Unknown data type saved: %s" % \
+                raise RedisQueueError("Unknown data type saved: %s" %
                                       results_dict.get("type"))
 
         except RedisQueueError:
             raise
 
         except redis.ConnectionError, e:
-            raise RedisQueueError("Cannot connect to Redis! %s" % \
+            raise RedisQueueError("Cannot connect to Redis! %s" %
                                   str(type(e))+str(e))
         except Exception, e:
-            raise RedisQueueError("Unexpected error: %s" % \
+            raise RedisQueueError("Unexpected error: %s" %
                                   str(type(e)) + str(e))
 
     def length(self):
@@ -100,7 +102,7 @@ class RedisQueue:
             results = self._q.llen(self._queuename)
             return results
         except redis.ConnectionError, e:
-            raise RedisQueueError("Cannot connect to Redis! %s" % \
+            raise RedisQueueError("Cannot connect to Redis! %s" %
                                   str(type(e))+str(e))
         except Exception, e:
             raise RedisQueueError("Unexpected error: %s" % str(type(e)) + str(e))
