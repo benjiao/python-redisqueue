@@ -16,7 +16,7 @@ def read(*filenames, **kwargs):
 long_description = read('README.md')
 
 setup(
-    name='redisqueue',
+    name='python_redisqueue',
     version='0.1.0a1',
     url='http://code.benjie.me/python-redisqueue',
     license='BSD',
@@ -24,7 +24,7 @@ setup(
     author_email='benjiao12@gmail.com',
     description='An easy to use redis-based queue implementation',
     long_description=long_description,
-    py_modules=['redisqueue.redisqueue'],
+    py_modules=['python_redisqueue.python_redisqueue'],
     zip_safe=False,
     include_package_data=True,
     platforms='any',

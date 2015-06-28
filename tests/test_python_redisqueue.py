@@ -2,13 +2,13 @@ import sys
 import uuid
 from unittest import TestCase
 
-import redisqueue
+import python_redisqueue
 
 class BasicTests(TestCase):
 
     def setUp(self):
         self.queuename = "redisqueuetest:%s" % uuid.uuid4()
-        self.queue = redisqueue.RedisQueue(self.queuename)
+        self.queue = python_redisqueue.RedisQueue(self.queuename)
 
     def test_length_on_empty(self):
         l = self.queue.length()
