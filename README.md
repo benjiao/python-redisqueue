@@ -5,7 +5,7 @@ A simple queue implementation on top of Redis for the Python developer who needs
 
 ### Import and Initialization
 ```
-from redisqueue import RedisQueue
+from python_redisqueue import RedisQueue
     q = RedisQueue("my_test_queue")
 ```
 
