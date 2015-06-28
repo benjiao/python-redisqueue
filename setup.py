@@ -18,7 +18,7 @@ long_description = read('README.md')
 
 setup(
     name='python-redisqueue',
-    version='0.1.0a1',
+    version='1.0.0a1',
     url='http://code.benjie.me/python-redisqueue',
     license='BSD',
     author='Benjie Jiao',
