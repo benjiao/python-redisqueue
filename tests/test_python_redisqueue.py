@@ -1,8 +1,8 @@
-import sys
 import uuid
 from unittest import TestCase
 
 import python_redisqueue
+
 
 class BasicTests(TestCase):
 
@@ -13,6 +13,10 @@ class BasicTests(TestCase):
     def test_length_on_empty(self):
         l = self.queue.length()
         self.assertEqual(0, l)
+
+    def test_dequeue_on_empty(self):
+        r = self.queue.deq()
+        self.assertEqual(None, r)
 
     def test_enqueue_int(self):
         self.queue.enq(1)

@@ -47,9 +47,9 @@ class RedisQueue:
             elif data_type is dict:
                 data_json = json.dumps({"type": "dict", "body": data})
             else:
-               raise RedisQueueError(("Data type cannot be encoded: %s. " +
-                                      "Please use <type 'int'>, <type 'str'> " +
-                                      "or <type 'dict'> instead") % data_type)
+                raise RedisQueueError(("Data type cannot be encoded: %s. " +
+                                       "Please use <type 'int'>, <type 'str'> " +
+                                       "or <type 'dict'> instead") % data_type)
 
             self._q.lpush(self._queuename, data_json)
             return True
@@ -70,6 +70,10 @@ class RedisQueue:
 
         try:
             results = self._q.rpop(self._queuename)
+
+            if results is None:
+                return None
+
             results_dict = json.loads(results)
 
             try:

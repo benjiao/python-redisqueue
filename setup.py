@@ -6,7 +6,7 @@ from setuptools import setup
 setup(
     name='python-redisqueue',
     keywords=['redis queue'],
-    version='1.0.2',
+    version='1.0.3',
     url='http://code.benjie.me/python-redisqueue',
     license='BSD',
     author='Benjie Jiao',
