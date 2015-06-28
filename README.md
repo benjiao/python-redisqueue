@@ -1,6 +1,14 @@
 # Python RedisQueue
 A simple queue implementation on top of Redis for the Python developer who needs a queue that just works!
 
+
+## Installation
+
+### Via Pip
+```
+pip install python-redisqueue
+```
+
 ## Usage
 
 ### Import and Initialization
