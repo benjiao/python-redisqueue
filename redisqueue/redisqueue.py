@@ -10,7 +10,7 @@ class RedisQueueBadDataError(RedisQueueError):
     pass
 
 class RedisQueue:
-    def __init__(self, queuename, host='localhost', port=6379, db=0):
+    def __init__(self, name, host='localhost', port=6379, db=0):
         """
         Initializes a new instance of RedisQueue
 
@@ -24,7 +24,7 @@ class RedisQueue:
         @type port Integer
         """
 
-        self._queuename = "queue:%s" % queuename
+        self._queuename = "queue:%s" % name
         self._q = redis.StrictRedis(host=host, port=port, db=0)
 
     def enq(self, data):
