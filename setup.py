@@ -1,6 +1,7 @@
 """
 python-redisqueue
 """
+import io
 from setuptools import setup
 
 def read(*filenames, **kwargs):
@@ -34,7 +35,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ]
