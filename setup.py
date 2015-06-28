@@ -4,6 +4,7 @@ python-redisqueue
 import io
 from setuptools import setup
 
+
 def read(*filenames, **kwargs):
     encoding = kwargs.get('encoding', 'utf-8')
     sep = kwargs.get('sep', '\n')
@@ -16,7 +17,7 @@ def read(*filenames, **kwargs):
 long_description = read('README.md')
 
 setup(
-    name='python_redisqueue',
+    name='python-redisqueue',
     version='0.1.0a1',
     url='http://code.benjie.me/python-redisqueue',
     license='BSD',
