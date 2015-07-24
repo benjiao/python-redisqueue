@@ -1,4 +1,6 @@
 # Python RedisQueue
+[![Build Status](https://travis-ci.org/benjiao/python-redisqueue.svg?branch=master)](https://travis-ci.org/benjiao/python-redisqueue)
+
 A simple queue implementation on top of Redis for the Python developer who needs a queue that just works!
 
 
