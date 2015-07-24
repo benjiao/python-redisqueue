@@ -1,0 +1,25 @@
+language: python
+python:
+  - "2.7"
+
+services:
+  - redis
+
+# command to install dependencies
+install: "pip install -r requirements.txt"
+
+# command to run tests
+script:
+  - nosetests
+
+# send notifications on fail
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+
+# whitelist
+branches:
+  only:
+    - master
+    - dev
